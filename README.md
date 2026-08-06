@@ -4,7 +4,7 @@ A custom C++ graphics engine built on Vulkan, written from scratch as a learning
 
 ## Features
 
-- [ ] Cross-platform window management (GLFW), with resize handling and fullscreen support
+- [x] Cross-platform window management (GLFW), with resize handling and fullscreen support
 - [ ] Vulkan instance / device selection
 - [ ] Swapchain creation and recreation on resize
 - [ ] Graphics pipeline
@@ -63,22 +63,21 @@ VulkanEngine/
 
 ## CMake Options
 
-| Option                    | Default | Description                               |
-| ------------------------- | ------- | ----------------------------------------- |
-| `VKENGINE_BUILD_SHARED_LIBS  ` | `OFF`   | Build `vulkan_engine` as a shared library |
-| `VKENGINE_BUILD_EXAMPLES` | `ON`    | Build the example applications            |
-| `VKENGINE_BUILD_TESTS`    | `ON`    | Build the unit test suite                 |
+| Option                       | Default | Description                               |
+| ---------------------------- | ------- | ----------------------------------------- |
+| `VKENGINE_BUILD_SHARED_LIBS` | `OFF`   | Build `vulkan_engine` as a shared library |
+| `VKENGINE_BUILD_EXAMPLES`    | `ON`    | Build the example applications            |
+| `VKENGINE_BUILD_TESTS`       | `ON`    | Build the unit test suite                 |
 
 ## Dependencies
 
-| Library                                          | Source                                     | Purpose                        |
-| ------------------------------------------------ | ------------------------------------------ | ------------------------------ |
-| **[Vulkan](https://www.vulkan.org/)**            | System (Vulkan SDK / MSYS2 `vulkan-devel`) | Graphics API loader & headers  |
-| **[GLFW](https://www.glfw.org/)** (3.5.1)        | FetchContent                               | Windowing and input management |
-| **[GLM](https://github.com/g-truc/glm)** (1.0.3) | FetchContent                               | Mathematics library            |
-| **[Catch2](https://github.com/catchorg/Catch2)** | FetchContent                               | Unit testing framework         |
-
-> Vulkan Memory Allocator is installed via the Vulkan SDK but not yet wired into the build — add it here once it's linked in `src/CMakeLists.txt`.
+| Library                                                                                        | Source                                     | Purpose                                                           |
+| ---------------------------------------------------------------------------------------------- | ------------------------------------------ | ----------------------------------------------------------------- |
+| **[Vulkan](https://www.vulkan.org/)**                                                          | System (Vulkan SDK / MSYS2 `vulkan-devel`) | Graphics API loader & headers                                     |
+| **[Vulkan Memory Allocator](https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator) | FetchContent                               | Vulkan memory allocation and resource (buffer and image) creation |
+| **[GLFW](https://www.glfw.org/)** (3.5.1)                                                      | FetchContent                               | Windowing and input management                                    |
+| **[GLM](https://github.com/g-truc/glm)** (1.0.3)                                               | FetchContent                               | Mathematics library                                               |
+| **[Catch2](https://github.com/catchorg/Catch2)**                                               | FetchContent                               | Unit testing framework                                            |
 
 ## License
 
