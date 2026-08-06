@@ -20,9 +20,17 @@ else()
   set(VKENGINE_IS_TOP_LEVEL OFF)
 endif()
 
-find_package(Vulkan REQUIRED)
+find_package(Vulkan REQUIRED COMPONENTS shaderc_combined SPIRV-Tools)
 
 include(FetchContent)
+
+FetchContent_Declare(
+  vma
+  GIT_REPOSITORY 
+    https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator.git
+  GIT_TAG        v3.4.0
+  GIT_SHALLOW    TRUE
+)
 
 FetchContent_Declare(
     glm
@@ -31,10 +39,12 @@ FetchContent_Declare(
     GIT_SHALLOW    TRUE
 )
 
+set(_prev_shared_libs ${BUILD_SHARED_LIBS})
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+
 FetchContent_Declare(
     glfw
     GIT_REPOSITORY https://github.com/glfw/glfw.git
@@ -42,8 +52,9 @@ FetchContent_Declare(
     GIT_SHALLOW    TRUE
 )
 
-FetchContent_MakeAvailable(glm glfw)
-set(BUILD_SHARED_LIBS ${_vkengine_shared_libs} CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(vma glm glfw)
+
+set(BUILD_SHARED_LIBS ${_prev_shared_libs} CACHE BOOL "" FORCE)
 
 add_subdirectory(src)
 

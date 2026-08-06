@@ -15,7 +15,7 @@ A custom C++ graphics engine built on Vulkan, written from scratch as a learning
 
 - **[MSYS2](https://www.msys2.org/) (`CLANG64` environment)** — C++23 compiler toolchain (LLVM Clang)
 - **[CMake](https://cmake.org/) ≥ 4.0** — required by this project's minimum version
-- **[Vulkan SDK](https://vulkan.lunarg.com/sdk/home)** — during install, select the Volk, Shader, and VMA components
+- **[Vulkan SDK](https://vulkan.lunarg.com/sdk/home)** — during install, select the Volk, Shader components
 
 ### Required System Packages (MSYS2)
 
@@ -29,7 +29,7 @@ pacman -S --needed \
   mingw-w64-clang-x86_64-clang-tools-extra
 ```
 
-GLM, GLFW, and Catch2 are pulled automatically via CMake `FetchContent` — no separate install needed for those.
+Vulkan Memory Allocator, GLM, GLFW, and Catch2 are pulled automatically via CMake `FetchContent` — no separate install needed for those.
 
 ## Building
 
@@ -65,7 +65,7 @@ VulkanEngine/
 
 | Option                    | Default | Description                               |
 | ------------------------- | ------- | ----------------------------------------- |
-| `BUILD_SHARED_LIBS`       | `OFF`   | Build `vulkan_engine` as a shared library |
+| `VKENGINE_BUILD_SHARED_LIBS  ` | `OFF`   | Build `vulkan_engine` as a shared library |
 | `VKENGINE_BUILD_EXAMPLES` | `ON`    | Build the example applications            |
 | `VKENGINE_BUILD_TESTS`    | `ON`    | Build the unit test suite                 |
 
