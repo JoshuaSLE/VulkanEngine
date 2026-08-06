@@ -1,7 +1,13 @@
 if(VKENGINE_BUILD_SHARED_LIBS)
-  add_library(vulkan_engine SHARED window.cpp)
+  add_library(vulkan_engine SHARED
+    window.cpp
+    renderer/renderer.cpp
+    )
 else()
-  add_library(vulkan_engine STATIC window.cpp)
+  add_library(vulkan_engine STATIC
+    window.cpp
+    renderer/renderer.cpp
+    )
 endif()
 add_library(VulkanEngine::vulkan_engine ALIAS vulkan_engine)
 

@@ -1,3 +1,4 @@
+#include "vulkan_engine/renderer.hpp"
 #include "vulkan_engine/window.hpp"
 #include <cstdlib>
 #include <iostream>
@@ -7,16 +8,24 @@ int main() {
 
   std::clog << "Triangle render staring...\n";
 
-  Window::Config config{};
-  config.width = 800;
-  config.height = 600;
-  config.title = "Triangle";
-  config.fullscreen = false;
-  config.resizable = true;
-  config.monitorIndex = 0;
+  Window::Config windowConfig{};
+  windowConfig.width = 800;
+  windowConfig.height = 600;
+  windowConfig.title = "Triangle";
+  windowConfig.fullscreen = false;
+  windowConfig.resizable = true;
+  windowConfig.monitorIndex = 0;
+
+  Renderer::Config rendererConfig{};
+  rendererConfig.applicationName = "Triangle render";
 
   try {
-    Window window(config);
+    Window window(windowConfig);
+
+    rendererConfig.glfwExtensions = window.getRequiredExtensions();
+
+    Renderer renderer(rendererConfig);
+
     window.show();
 
     // INFO: Main loop
