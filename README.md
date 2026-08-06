@@ -74,7 +74,7 @@ VulkanEngine/
 | Library                                                                                        | Source                                     | Purpose                                                           |
 | ---------------------------------------------------------------------------------------------- | ------------------------------------------ | ----------------------------------------------------------------- |
 | **[Vulkan](https://www.vulkan.org/)**                                                          | System (Vulkan SDK / MSYS2 `vulkan-devel`) | Graphics API loader & headers                                     |
-| **[Vulkan Memory Allocator](https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator) | FetchContent                               | Vulkan memory allocation and resource (buffer and image) creation |
+| **[Vulkan Memory Allocator](https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator)** | FetchContent                               | Vulkan memory allocation and resource (buffer and image) creation |
 | **[GLFW](https://www.glfw.org/)** (3.5.1)                                                      | FetchContent                               | Windowing and input management                                    |
 | **[GLM](https://github.com/g-truc/glm)** (1.0.3)                                               | FetchContent                               | Mathematics library                                               |
 | **[Catch2](https://github.com/catchorg/Catch2)**                                               | FetchContent                               | Unit testing framework                                            |
